@@ -2,7 +2,7 @@
     height: 150px;
     display: flex;
     flex-direction: row;
-    padding: 0 50px;
+    padding: 0 90px;
 }
 
 .navbar span #nav-logo {
@@ -32,4 +32,39 @@
 
 .navbar .navbar-nav li a:hover {
     background-color: #c5c5c5;
+}
+
+/* @media (min-width: 1440px) { ... }
+ 
+@media (max-width: 1200px) and (max-width: 1439px) { ... }
+ 
+@media (max-width: 1024px) { ... } */
+ 
+@media (max-width: 640px) {
+    .navbar {
+        height: 100px;
+        padding: 0 30px;
+    }
+    
+    .navbar span #nav-logo {
+        height: 90px;
+        margin-top: 0;
+    }
+    
+    .navbar .navbar-nav {
+        width: 100%;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    .navbar .navbar-nav li a {
+        text-decoration: none;
+        font-size: x-large;
+        padding: 0 10px;
+        margin: 0 5px;
+    }
+    
+    .navbar .navbar-nav li a:hover {
+        background-color: #c5c5c5;
+    }
 }

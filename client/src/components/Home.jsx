@@ -11,8 +11,8 @@ function Home() {
           <div className='circle2'></div>
         </div>
         <div className='hero-right'>
-          <p style={{fontSize: 64}}>
-              <span style={{fontSize: 96}}>I'm JB</span>
+          <p>
+              <span>I'm JB</span>
               <br />
               an aspiring 
               Web Developer
