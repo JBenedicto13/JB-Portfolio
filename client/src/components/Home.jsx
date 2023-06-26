@@ -1,8 +1,26 @@
+import '../styles/home.css';
+import Hero from '../assets/hero.png';
 function Home() {
 
   return (
-    <div className="main-container">
-      <h1>Hello World!</h1>     
+    <div className="home">
+      <div className="hero-section">
+        <div className='hero-left'>
+          <img id='hero' src={Hero} alt="hero" />
+          <div className='circle1'></div>
+          <div className='circle2'></div>
+        </div>
+        <div className='hero-right'>
+          <p style={{fontSize: 64}}>
+              <span style={{fontSize: 96}}>I'm JB</span>
+              <br />
+              an aspiring 
+              Web Developer
+              and Graphic Designer
+          </p>
+          
+        </div>
+      </div>
     </div>
    
   );

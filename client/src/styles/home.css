@@ -1,0 +1,54 @@
+.home {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.home .hero-section {
+    border: 1px solid #1B1B1B;
+    border-radius: 10px;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.home #hero {
+    height: 657px;
+}
+
+.home .circle1 {
+    height: 319px;
+    width: 319px;
+    border-radius: 50%;
+    position: absolute;
+    left: 275px;
+    top: 25px;
+    z-index: -1;
+}
+
+.home .circle2 {
+    height: 336px;
+    width: 336px;
+    border-radius: 50%;
+    position: absolute;
+    left: 710px;
+    bottom: 160px;
+}
+
+.home .circle1, .home .circle2 {
+    background-color: #111089;
+}
+
+.home .hero-section .hero-left {
+    width: 100%;
+    margin: 0 0 0 200px;
+}
+
+.home .hero-section .hero-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.home .hero-section .hero-right p {
+    padding-top: 50px;
+}
