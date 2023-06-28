@@ -8,11 +8,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .works-header {
     width: 90%;
     margin-top: 75px;
+    margin-left: 100px;
 }
 
 .works-header span {
@@ -94,3 +96,19 @@
 /* .action-buttons button:hover {
     background-color: #3a3535;
 } */
+
+.works-controls {
+    margin-top: 25px;
+    display: flex;
+    column-gap: 25px;
+}
+
+.works-controls button {
+    font-size: 24px;
+    padding: 8px 12px;
+    color: #f3f3f3;
+    background-color: #111089;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

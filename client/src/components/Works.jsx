@@ -64,6 +64,11 @@ function Works() {
           </div>
         </div>
       </div>
+      <div className='works-controls'>
+        <button>PREV</button>
+        <button>NEXT</button>
+      </div>
+      
     </div>
    
   );
