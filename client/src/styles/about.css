@@ -13,6 +13,7 @@
 
 .about-container {
   display: flex;
+  padding: 100px 0;
   width: 300vw;
 }
 
@@ -27,7 +28,7 @@
     margin-top: 80px;
 }
 
-.about .circle1 {
+.about .circle1, .about .circle2 {
   background-color: #111089;
 }
 
@@ -41,6 +42,15 @@
   z-index: -1;
 }
 
+.about .circle2 {
+  height: 333px;
+  width: 333px;
+  border-radius: 50%;
+  position: absolute;
+  right: 500px;
+  bottom: -180px;
+}
+
 .about-side {
     width: 40%;
     display: flex;
@@ -50,8 +60,8 @@
 
 .about-side .arrow-right {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -100px;
+    right: 100px;
 }
 
 .about-side .arrow-right svg {
@@ -60,7 +70,7 @@
 
 .about-side .blockchain {
     position: absolute;
-    top: 200px;
+    top: 150px;
     right: 0;
 }
 
@@ -77,4 +87,41 @@
 .about-content p {
     font-size: 36px;
     width: 70%;
+}
+
+.about .next {
+  display: flex;
+  align-items: flex-end;
+  color: red;
+  height: 700vh;
+}
+
+.about-ojt-dost {
+  border: solid 1px #000;
+  margin-left: 50px;
+  width: 80vw;
+}
+
+.about-ojt-dost .title h1 {
+  font-size: 64px;
+  text-align: center;
+}
+
+.about-ojt-dost .contents {
+  display: flex;
+}
+
+.about-ojt-dost .title-div {
+  width: 615px;
+  padding: 0 50px;
+}
+
+.about-ojt-dost .title-div p {
+  font-size: 36px;
+}
+
+.about-ojt-dost .contents img {
+  padding-top: 50px;
+  width: 761px;
+  height: auto;
 }
