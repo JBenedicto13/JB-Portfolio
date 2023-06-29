@@ -23,7 +23,7 @@ const About = () => {
             scrub: 1,
             end: '+=3000',
             // snap: 1 / (sections.length - 1),
-            markers: true,
+            // markers: true,
         },
         });
     }, []);
