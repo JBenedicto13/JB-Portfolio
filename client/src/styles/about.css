@@ -89,13 +89,6 @@
     width: 70%;
 }
 
-.about .next {
-  display: flex;
-  align-items: flex-end;
-  color: red;
-  height: 700vh;
-}
-
 .about-ojt-dost {
   border: solid 1px #000;
   margin-left: 50px;
@@ -124,4 +117,11 @@
   padding-top: 50px;
   width: 761px;
   height: auto;
+}
+
+.about .next {
+  display: flex;
+  align-items: flex-end;
+  color: red;
+  height: 500vh;
 }

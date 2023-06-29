@@ -3,7 +3,7 @@ import HeroPic from '../assets/hero.png';
 function Hero() {
 
   return (
-    <div className="hero">
+    <div id='hero-section' className="hero">
       <div className="hero-section">
         <div className='hero-left'>
           <img id='hero' src={HeroPic} alt="hero" />

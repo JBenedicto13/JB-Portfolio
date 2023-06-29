@@ -7,7 +7,7 @@ import Reactjs_icon from '../assets/reactjs-icon.svg';
 function Works() {
 
   return (
-    <div className="works">
+    <div id='works-section' className="works">
       <div className="works-header">
         <p>
           <span>Works</span>

@@ -29,7 +29,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className='about'>
+        <div id='about-section' className='about'>
             <div className='about-container' ref={sectionsRef}>
                 <section>
                     <div className='about-content'>
@@ -64,9 +64,9 @@ const About = () => {
                     </div>
                 </section>
             </div>
-            {/* <div className='next'>
+            <div className='next'>
                 <h1>You reach the end!</h1>
-            </div> */}
+            </div>
         </div>
     )
 }
