@@ -4,6 +4,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import blockchainIcon from '../assets/blockchain-icon.svg';
 import dostBuilding from '../assets/dost-building.jpg';
+import webdevTech from './data/webdevTech';
+import graphicDesignTech from './data/graphicDesignTech';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +17,7 @@ const About = () => {
         const sections = Array.from(sectionsRef.current.children);
 
         gsap.to(sections, {
-        xPercent: -130 * (sections.length - 1),
+        xPercent: -100 * (sections.length - 1),
         ease: 'none',
         scrollTrigger: {
             trigger: sectionsRef.current,
@@ -64,8 +66,32 @@ const About = () => {
                     </div>
                 </section>
             </div>
-            <div className='next'>
-                <h1>You reach the end!</h1>
+            <div className='technologies-section'>
+                <div className='technologies-header'>
+                    <h1>Technologies that I use</h1>
+                </div>
+                <div className='technologies-content'>
+                    <p>Web Development</p>
+                    <div className='tech-div'>
+                    {
+                        webdevTech.map((icon) => {
+                            return (
+                                <span>{icon.svg}</span>
+                            )
+                        })
+                    }
+                    </div>
+                    <p>Graphic Design</p>
+                    <div className='tech-div'>
+                    {
+                        graphicDesignTech.map((icon) => {
+                            return (
+                                <span>{icon.svg}</span>
+                            )
+                        })
+                    }
+                    </div>
+                </div>
             </div>
         </div>
     )
