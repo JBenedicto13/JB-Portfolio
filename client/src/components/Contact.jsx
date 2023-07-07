@@ -12,9 +12,9 @@ const Contact = () => {
       <div className='main-content'>
         <div className='content'>
             {
-                contactData.map((data) => {
+                contactData.map((data, index) => {
                     return (
-                        <a href={data.link} target='_blank' className='contact-data'>
+                        <a key={index} href={data.link} target='_blank' className='contact-data'>
                             <span>{data.svg}</span>
                             <p>{data.value}</p>
                         </a>

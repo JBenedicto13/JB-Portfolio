@@ -5,7 +5,9 @@ const worksSchema = new mongoose.Schema({
     id: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
-    images: { type: String }
+    thumbnail: { type: String },
+    images: { type: String },
+    tools: { type: Array, required: true },
 });
 
 

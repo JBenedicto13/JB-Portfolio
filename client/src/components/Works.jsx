@@ -1,10 +1,45 @@
 import '../styles/works.css';
 import RE_Work from '../assets/RE-SS.png';
-import Html_icon from '../assets/html-icon.svg';
-import Css_icon from '../assets/css-icon.svg';
-import Reactjs_icon from '../assets/reactjs-icon.svg';
+import WebDevTechIcons from './data/webdevTech';
+import http from '../utils/http';
+import { useEffect, useState } from 'react';
+import {Cloudinary} from "@cloudinary/url-gen";
 
 function Works() {
+
+  const cld = new Cloudinary({cloud: {cloudName: 'dxnta6ljp'}});
+  const [worksData, setWorksData] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = worksData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const getWorksData = () => {
+    http.get('works/view')
+    .then((res) => {
+      setWorksData(res.data);
+    })
+  }
+
+  const getLength = (str) => {
+    const trimmedStr = str.replace(/\s/g, '');
+    return trimmedStr.length;
+  };
+  
+  useEffect(() => {
+    getWorksData();
+  }, [])
 
   return (
     <div id='works-section' className="works">
@@ -16,61 +51,40 @@ function Works() {
         </p>
       </div>
       <div className='works-content'>
-        <div className='work-card'>
-          <p>Rising Eggplants (NFT Project)</p>
-          <div className='work-card-body'>
-            <img className='work-cover' src={RE_Work} alt="RE_Work" />
-            <div className='tech-icons'>
-              <span><img src={Html_icon} alt="Html_icon" /></span>
-              <span><img src={Css_icon} alt="Css_icon" /></span>
-              <span><img src={Reactjs_icon} alt="Reactjs_icon" /></span>
-            </div>
-          </div>
-          <div className='action-buttons'>
-            <button>GITHUB</button>
-            <button>VISIT</button>
-          </div>
-        </div>
-
-        <div className='work-card'>
-          <p>Rising Eggplants (NFT Project)</p>
-          <div className='work-card-body'>
-            <img className='work-cover' src={RE_Work} alt="RE_Work" />
-            <div className='tech-icons'>
-              <span><img src={Html_icon} alt="Html_icon" /></span>
-              <span><img src={Css_icon} alt="Css_icon" /></span>
-              <span><img src={Reactjs_icon} alt="Reactjs_icon" /></span>
-            </div>
-          </div>
-          <div className='action-buttons'>
-            <button>GITHUB</button>
-            <button>VISIT</button>
-          </div>
-        </div>
-
-        <div className='work-card'>
-          <p>Rising Eggplants (NFT Project)</p>
-          <div className='work-card-body'>
-            <img className='work-cover' src={RE_Work} alt="RE_Work" />
-            <div className='tech-icons'>
-              <span><img src={Html_icon} alt="Html_icon" /></span>
-              <span><img src={Css_icon} alt="Css_icon" /></span>
-              <span><img src={Reactjs_icon} alt="Reactjs_icon" /></span>
-            </div>
-          </div>
-          <div className='action-buttons'>
-            <button>GITHUB</button>
-            <button>VISIT</button>
-          </div>
-        </div>
+        {
+          currentItems.map((work, index) => {
+            return (
+              <div key={index} className='work-card'>
+                <p>{work.title}</p>
+                <div className='work-card-body'>
+                  <img className='work-cover' src={work.thumbnail} alt="RE_Work" />
+                  <div className='tech-icons'>
+                    {
+                      work.tools.map((tool, index) => {
+                        const icon = WebDevTechIcons.find((icon) => icon.name === tool);
+                        if (icon) {
+                          return (
+                            <span key={index}>{icon.svg}</span>
+                          )
+                        }
+                      })
+                    }
+                  </div>
+                </div>
+                <div className='action-buttons'>
+                  <a href={work.github != '' ? work.github : '#'} target='_blank'>GITHUB</a>
+                  <a href={work.url != '' ? work.url : '#'} target='_blank'>VISIT</a>
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
-      <div className='works-controls'>
-        <button>PREV</button>
-        <button>NEXT</button>
-      </div>
-      
+        <div className='works-controls'>
+          <button onClick={handlePrevPage} disabled={currentPage === 1}>PREV</button>
+          <button onClick={handleNextPage} disabled={indexOfLastItem >= worksData.length}>NEXT</button>
+        </div>
     </div>
-   
   );
 }
 

@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
     
-    const sectionsRef = useRef(null);
+    const sectionsRef = useRef();
 
     useEffect(() => {
         const sections = Array.from(sectionsRef.current.children);
@@ -74,9 +74,12 @@ const About = () => {
                     <p>Web Development</p>
                     <div className='tech-div'>
                     {
-                        webdevTech.map((icon) => {
+                        webdevTech.map((icon, index) => {
+                            if (icon.name === "HTML" || icon.name === "CSS") {
+                                return null; // Skip rendering this icon
+                            }
                             return (
-                                <span>{icon.svg}</span>
+                                <span key={index}>{icon.svg}</span>
                             )
                         })
                     }
@@ -84,9 +87,9 @@ const About = () => {
                     <p>Graphic Design</p>
                     <div className='tech-div'>
                     {
-                        graphicDesignTech.map((icon) => {
+                        graphicDesignTech.map((icon, index) => {
                             return (
-                                <span>{icon.svg}</span>
+                                <span key={index}>{icon.svg}</span>
                             )
                         })
                     }

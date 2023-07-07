@@ -22,12 +22,12 @@ router.get("/view", async (req, res) => {
 // });
 
 router.post("/add", async (req, res) => {
-    const { title, description, images } = req.body;
+    const { title, description, thumbnail, images, tools } = req.body;
     
     try {
         const id = await getNextCounterValue("works_collection", "count");
 
-        let works = new Works({ id, title, description, images });
+        let works = new Works({ id, title, description, thumbnail, images, tools });
         await works.save();
 
         res.send("Work Added Successfully")
