@@ -75,7 +75,7 @@ const About = () => {
                     <div className='tech-div'>
                     {
                         webdevTech.map((icon, index) => {
-                            if (icon.name === "HTML" || icon.name === "CSS") {
+                            if (icon.name === "HTML" || icon.name === "CSS" || icon.name === "PHP") {
                                 return null; // Skip rendering this icon
                             }
                             return (
