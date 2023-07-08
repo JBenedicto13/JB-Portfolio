@@ -1,0 +1,78 @@
+.viewWork {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewWork .main-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewWork .header {
+    width: 100%;
+}
+
+.viewWork .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.viewWork .content .description {
+    width: 100%;
+    font-size: 24px;
+    text-align: justify;
+    margin: 0 0 25px 0;
+}
+
+.viewWork .content .screenshots {
+    width: 100%;
+}
+
+.viewWork .content .screenshots .title {
+    margin: 0 0 30px 0;
+}
+
+.viewWork .content .screenshots .title p {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.viewWork .content .screenshots .screenshot-slider {
+    display: flex;
+}
+
+.viewWork .content .screenshots .screenshot-slider .images {
+    aspect-ratio: 16/9;
+    flex-shrink: 0;
+    background: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+
+.viewWork .content .screenshots .screenshot-slider .images img {
+    width: 900px;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #858383;
+}
+
+.viewWork .content .screenshots .screenshot-slider .slider-control {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.viewWork .content .screenshots .screenshot-slider .slider-control svg path:hover {
+    fill: #969494;
+    cursor: pointer;
+}

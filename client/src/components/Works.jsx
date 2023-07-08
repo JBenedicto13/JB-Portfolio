@@ -1,5 +1,4 @@
 import '../styles/works.css';
-import RE_Work from '../assets/RE-SS.png';
 import WebDevTechIcons from './data/webdevTech';
 import http from '../utils/http';
 import { useEffect, useState } from 'react';
@@ -32,10 +31,9 @@ function Works() {
     })
   }
 
-  const getLength = (str) => {
-    const trimmedStr = str.replace(/\s/g, '');
-    return trimmedStr.length;
-  };
+  const viewWork = (id) => {
+    window.location.href='work/view/' + id;
+  }
   
   useEffect(() => {
     getWorksData();
@@ -52,11 +50,11 @@ function Works() {
       </div>
       <div className='works-content'>
         {
-          currentItems.map((work, index) => {
+          currentItems.map((work) => {
             return (
-              <div key={index} className='work-card'>
+              <div key={work.id} className='work-card'>
                 <p>{work.title}</p>
-                <div className='work-card-body'>
+                <div onClick={() => viewWork(work.id)} className='work-card-body'>
                   <img className='work-cover' src={work.thumbnail} alt="RE_Work" />
                   <div className='tech-icons'>
                     {

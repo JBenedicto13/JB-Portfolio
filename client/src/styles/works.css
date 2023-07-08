@@ -65,6 +65,11 @@
     padding: 20px;
 }
 
+.work-card-body:hover {
+    cursor: pointer;
+    box-shadow: 0 0 50px #ccc;
+}
+
 .work-card p {
     font-size: 24px;
     text-align: center;
@@ -96,9 +101,9 @@
     cursor: pointer;
 }
 
-/* .action-buttons a:hover {
-    background-color: #3a3535;
-} */
+.action-buttons a:hover {
+    background-color: #969494;
+}
 
 .works-controls {
     margin-top: 25px;

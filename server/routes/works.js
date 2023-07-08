@@ -2,6 +2,13 @@ const express = require("express");
 const router = express.Router();
 const Works = require("../models/Works")
 const getNextCounterValue = require("./counterUtils");
+const cloudinary = require("cloudinary");
+
+  cloudinary.config({ 
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET 
+  });
 
 router.get("/view", async (req, res) => {
     Works.find()
@@ -9,25 +16,25 @@ router.get("/view", async (req, res) => {
       .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// router.get("/view/:animalID", async (req, res) => {
-//     const { animalID } = req.params;
-//     Animal.findOne({ animalID })
-//         .then((animal) => {
-//             if (!animal) {
-//                 return res.status(404).json({ error: "Animal not found" });
-//             }
-//             res.json(animal);
-//         })
-//         .catch((err) => res.status(400).json({ error: err.message }));
-// });
+router.get("/view/:id", async (req, res) => {
+    const { id } = req.params;
+    Works.findOne({ id })
+        .then((work) => {
+            if (!work) {
+                return res.status(404).json({ error: "Work not found" });
+            }
+            res.json(work);
+        })
+        .catch((err) => res.status(400).json({ error: err.message }));
+});
 
 router.post("/add", async (req, res) => {
-    const { title, description, thumbnail, images, tools } = req.body;
+    const { title, description, thumbnail, images, tools, github, url } = req.body;
     
     try {
         const id = await getNextCounterValue("works_collection", "count");
 
-        let works = new Works({ id, title, description, thumbnail, images, tools });
+        let works = new Works({ id, title, description, thumbnail, images, tools, github, url });
         await works.save();
 
         res.send("Work Added Successfully")
@@ -76,5 +83,31 @@ router.post("/add", async (req, res) => {
 //     })
 //     .catch((err) => res.send(err + "\nFailed to restore Animal"));
 // });
+
+async function fetchImagesFromFolder(folderName) {
+    try {
+        const result = await cloudinary.v2.search
+        .expression(`folder:${folderName}`)
+        .execute();
+
+        // const imageUrls = result.resources.map(resource => resource.secure_url);
+        const imageUrls = result;
+        return imageUrls;
+    } catch (error) {
+        console.error('Error fetching images from Cloudinary:', error);
+        throw error;
+    }
+}
+
+router.get('/images/folder', async (req, res) => {
+    const { folderName } = req.query;
+
+    try {
+        const imagesUrls = await fetchImagesFromFolder(folderName);
+        res.json(imagesUrls);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch images' });
+    }
+})
 
 module.exports = router;

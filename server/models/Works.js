@@ -8,6 +8,8 @@ const worksSchema = new mongoose.Schema({
     thumbnail: { type: String },
     images: { type: String },
     tools: { type: Array, required: true },
+    github: { type: String },
+    url: { type: String }
 });
 
 
