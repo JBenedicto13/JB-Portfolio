@@ -87,19 +87,17 @@ router.post("/add", async (req, res) => {
 async function fetchImagesFromFolder(folderName) {
     try {
         const result = await cloudinary.v2.search
-        .expression(`folder:${folderName}`)
+        .expression(`folder=Portfolio/works/${folderName}`)
         .execute();
 
-        // const imageUrls = result.resources.map(resource => resource.secure_url);
-        const imageUrls = result;
-        return imageUrls;
+        return result;
     } catch (error) {
         console.error('Error fetching images from Cloudinary:', error);
         throw error;
     }
 }
 
-router.get('/images/folder', async (req, res) => {
+router.get('/screenshots', async (req, res) => {
     const { folderName } = req.query;
 
     try {
