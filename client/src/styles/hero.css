@@ -59,6 +59,7 @@
 }
 
 #btnResume {
+    text-decoration: none;
     border: none;
     border-radius: 5px;
     background-color: #111089;
@@ -86,8 +87,13 @@
 #btnResume #resume-svg {
     display: flex;
     align-items: center;
-
 }
+
+#btnResume #resume-svg svg {
+    height: 30px;
+    width: 30px;
+}
+
 
 /* @media (min-width: 1440px) { ... }
  

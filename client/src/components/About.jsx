@@ -3,7 +3,6 @@ import '../styles/about.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import blockchainIcon from '../assets/blockchain-icon.svg';
-import dostBuilding from '../assets/dost-building.jpg';
 import webdevTech from './data/webdevTech';
 import graphicDesignTech from './data/graphicDesignTech';
 
@@ -60,7 +59,7 @@ const About = () => {
                                 <p>I took my On-the-job training in the Department of Science and Technology Regional Office No. 3 (DOST3) as a student trainee under the Management Information System Unit in the Software and System Development Section. Here, I have developed an ICT Inventory System using PHP and MySQL and learned a lot of things about working in government and different soft skills.</p>
                             </div>
                             <div className='image-div'>
-                                <img src={dostBuilding} alt="dost-building" />
+                                <img src='https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/jgb8ausljxeng6e4v3he' alt="dost-building" />
                             </div>
                         </div>
                     </div>
