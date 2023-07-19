@@ -3,11 +3,13 @@ import WebDevTechIcons from './data/webdevTech';
 import http from '../utils/http';
 import { useEffect, useState } from 'react';
 import {Cloudinary} from "@cloudinary/url-gen";
+import CardSkeleton from './CardSkeleton';
 
 function Works() {
 
   const cld = new Cloudinary({cloud: {cloudName: 'dxnta6ljp'}});
   const [worksData, setWorksData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -28,6 +30,7 @@ function Works() {
     http.get('works/view')
     .then((res) => {
       setWorksData(res.data);
+      setIsLoading(false);
     })
   }
 
@@ -49,6 +52,7 @@ function Works() {
         </p>
       </div>
       <div className='works-content'>
+        {isLoading && <CardSkeleton cards={3} />}
         {
           currentItems.map((work) => {
             return (

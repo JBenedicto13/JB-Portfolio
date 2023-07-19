@@ -1,0 +1,22 @@
+.card-skeleton {
+    width: 30%;
+}
+
+.cs-title {
+    text-align: center;
+}
+
+.cs-body {
+    text-align: center;
+}
+
+.cs-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.cs-action-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -2,11 +2,14 @@ import {React, useState, useEffect} from 'react'
 import '../styles/viewwork.css';
 import { useParams } from 'react-router-dom';
 import http from '../utils/http.js';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const ViewWork = () => {
     
     const { id } = useParams();
     const [workData, setWorkData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const [imgUrls, setImgUrls] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 1;
@@ -27,6 +30,7 @@ const ViewWork = () => {
         await http.get(`works/view/${id}`)
         .then((res) => {
             setWorkData(res.data);
+            setIsLoading(false);
             getScreenshots(res.data.images);
         })
     }
@@ -49,11 +53,11 @@ const ViewWork = () => {
     <div className='viewWork'>
      <div className='main-content'>
         <div className='header'>
-            <h1>{workData.title}</h1>
+            <h1>{workData.title || <Skeleton />}</h1>
         </div>
         <div className='content'>
             <div className='description'>
-                <p>{workData.description}</p>
+                <p>{workData.description || <Skeleton width={1000} count={5} />}</p>
             </div>
             <div className='screenshots'>
                 <div className='title'>
@@ -67,12 +71,13 @@ const ViewWork = () => {
                     </button>
                     <div className='images'>
                         {
+                            isLoading ? <Skeleton width={800} height={450} /> :
                             currentItems.map((img) => {
                                 return (
                                     <img key={img.asset_id} src={img.url} alt={img.filename} />
                                 )
                             })
-                        }
+                        } 
                         
                     </div>
                     <button onClick={handleNextPage} disabled={indexOfLastItem >= imgUrls.length} className='slider-control'>
