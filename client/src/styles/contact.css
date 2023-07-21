@@ -1,6 +1,8 @@
 .contact {
     width: 100%;
+    background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
     background-color: #111089;
+    background-blend-mode: soft-light;
 }
 
 .contact .title {

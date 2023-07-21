@@ -18,14 +18,16 @@
 }
 
 .about-content {
-    width: 60%;
-    color: #f3f3f3;
-    margin-left: 100px;
-    margin-top: 80px;
+  width: 60%;
+  color: #f3f3f3;
+  margin-left: 100px;
+  margin-top: 80px;
 }
 
 .about .circle1, .about .circle2 {
+  background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
   background-color: #111089;
+  background-blend-mode: soft-light;
 }
 
 .about .circle1 {
@@ -146,7 +148,9 @@
 .technologies-section .tech-div {
   height: 100px;
   width: 100%;
+  background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
   background-color: #111089;
+  background-blend-mode: soft-light;
   display: flex;
   justify-content: space-around;
   column-gap: 24px;
