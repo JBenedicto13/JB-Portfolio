@@ -1,8 +1,8 @@
 .about {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow-wrap: normal;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-wrap: normal;
 }
 
 .about-container {
@@ -10,7 +10,6 @@
   padding: 100px 0;
   width: 300vw;
   margin: 100px 0px;
-
 }
 
 .about-container section {
@@ -166,4 +165,130 @@
 
 .technologies-section .tech-div span svg path {
   fill: #F3F3F3;
+}
+
+/* @media (min-width: 1440px) { ... }
+ 
+@media (max-width: 1200px) and (max-width: 1439px) { ... }
+ 
+@media (max-width: 1024px) { ... } */
+ 
+@media (max-width: 640px) {
+  .about {
+    flex-direction: column;
+    border: 1px solid hotpink;
+    width: 100%;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .about-container section {
+    width: 100%;
+  }
+  
+  .about-content {
+    width: 100%;
+    margin: auto;
+    padding: 160px 0;
+    text-align: justify;
+    height: auto;
+    background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
+    background-color: #111089;
+    background-blend-mode: soft-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about .circle1, .about .circle2, .about .about-side  {
+    display: none;
+  }
+  
+  .about-content h1 {
+    font-size: 48px;
+    font-weight: 600;
+    text-align: left;
+    width: 75%;
+  }
+  
+  .about-content p {
+    font-size: 24px;
+    width: 75%;
+  }
+  
+  .about-ojt-dost {
+    border: solid 1px #000;
+    margin: auto;
+    width: 100%;
+  }
+  
+  .about-ojt-dost .title h1 {
+    font-size: 36px;
+    text-align: center;
+    padding: 25px;
+    margin: 25px;
+  }
+  
+  .about-ojt-dost .contents {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-ojt-dost .title-div {
+    width: 480px;
+    padding: 50px;
+  }
+  
+  .about-ojt-dost .title-div p {
+    font-size: 24px;
+    text-align: justify;
+  }
+  
+  .about-ojt-dost .contents img {
+    padding-top: 0px;
+    width: 480px;
+    height: auto;
+    border: 1px solid hsl(0, 0%, 30%);
+  }
+  
+  .about .technologies-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: auto;
+    width: 100%;
+  }
+  
+  .technologies-section .technologies-header {
+    width: 100%;
+  }
+  
+  .technologies-section .technologies-header h1 {
+    text-align: center;
+    font-size: 48px;
+    padding: 75px 0;
+  }
+  
+  .technologies-section .technologies-content {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 48px;
+  }
+  
+  .technologies-section .tech-div {
+    height: 70vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
 }

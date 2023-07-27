@@ -120,3 +120,120 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* @media (min-width: 1440px) { ... }
+ 
+@media (max-width: 1200px) and (max-width: 1439px) { ... }
+ 
+@media (max-width: 1024px) { ... }
+
+*/
+
+@media (max-width: 640px) {
+    .works {
+        margin: 50px 0;
+        height: auto;
+    }
+    
+    .works-header {
+        margin: 50px 0 0 0;
+    }
+    
+    .works-header span {
+        font-size: 48px;
+        font-weight: 600;
+    }
+    
+    .works-header p {
+        font-size: 24px;
+    }
+    
+    .works-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .tech-icons span svg {
+        height: 50px;
+        width: 50px;
+        padding: 0 25px;
+    }
+    
+    .works-content {
+        width: 90%;
+        display: flex;
+    }
+    
+    .work-card {
+        width: 100%;
+    }
+    
+    .work-card-body {
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: #d9d9d9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .work-card-body:hover {
+        cursor: pointer;
+        box-shadow: 0 0 50px #ccc;
+    }
+    
+    .work-card p {
+        font-size: 24px;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .work-card-body .work-cover {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #858383;
+    }
+    
+    .action-buttons {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        column-gap: 10px;
+    }
+    
+    .action-buttons a {
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        font-size: 24px;
+        width: 50%;
+        background-color: #d9d9d9;
+        border: 1px solid #000;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .action-buttons a:hover {
+        background-color: #969494;
+    }
+    
+    .works-controls {
+        margin-top: 25px;
+        display: flex;
+        column-gap: 25px;
+    }
+    
+    .works-controls button {
+        font-size: 24px;
+        padding: 8px 12px;
+        color: #f3f3f3;
+        background-color: #111089;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

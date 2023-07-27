@@ -105,11 +105,16 @@
  
 @media (max-width: 640px) {
 
+    .hero {
+        width: 100%;
+    }
+    
     .hero .hero-section {
         flex-direction: column-reverse;
+        border-radius: 5px;
     }
 
-    .hero #hero {
+    .hero #hero {   
         height: 360px;
     }
     
@@ -117,26 +122,37 @@
         height: 172px;
         width: 172px;
         left: 130px;
-        top: 240px;
+        top: 180px;
     }
     
     .hero .circle2 {
         height: 172px;
         width: 172px;
-        left: 380px;
-        bottom: 390px;
+        left: 390px;
+        bottom: -90px;
     }
     
     .hero .hero-section .hero-left {
-        margin: 0 0 0 120px;
+        width: auto;
+        margin: auto;
+        margin-left: 120px;
+    }
+
+    .hero .hero-section .hero-right {
+        flex-direction: row;
+        padding: 20px;
     }
     
     .hero .hero-section .hero-right p {
         padding-top: 0px;
-        font-size: 36px;
-        text-align: center;
+        font-size: 24px;
+        /* text-align: center; */
     }
     .hero .hero-section .hero-right p span{
-        font-size: 64px;
+        font-size: 36px;
+        font-weight: 600;
+    }
+    #btnResume {
+        margin: 25px 0;
     }
 }

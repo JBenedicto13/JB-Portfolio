@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/about.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,23 +11,41 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
     
     const sectionsRef = useRef();
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
 
     useEffect(() => {
-        const sections = Array.from(sectionsRef.current.children);
+        // Function to set the isDesktop state based on the window width
+        const handleWindowResize = () => {
+          setIsDesktop(window.innerWidth >= 1440);
+        };
+    
+        // Add event listener on component mount to handle window resize
+        window.addEventListener('resize', handleWindowResize);
+    
+        // Clean up the event listener on component unmount
+        return () => {
+          window.removeEventListener('resize', handleWindowResize);
+        };
+      }, []);
 
-        gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: sectionsRef.current,
-            pin: true,
-            scrub: 1,
-            end: '+=3000',
-            // snap: 1 / (sections.length - 1),
-            // markers: true,
-        },
-        });
-    }, []);
+    useEffect(() => {
+        if (isDesktop) {
+            const sections = Array.from(sectionsRef.current.children);
+
+            gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: sectionsRef.current,
+                pin: true,
+                scrub: 1,
+                end: '+=3000',
+                // snap: 1 / (sections.length - 1),
+                // markers: true,
+            },
+            });
+        }
+    }, [isDesktop]);
 
     return (
         <div id='about-section' className='about'>

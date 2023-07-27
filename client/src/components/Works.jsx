@@ -10,9 +10,26 @@ function Works() {
   const cld = new Cloudinary({cloud: {cloudName: 'dxnta6ljp'}});
   const [worksData, setWorksData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
+
+  useEffect(() => {
+      // Function to set the isDesktop state based on the window width
+      const handleWindowResize = () => {
+        setIsDesktop(window.innerWidth >= 1440);
+      };
+  
+      // Add event listener on component mount to handle window resize
+      window.addEventListener('resize', handleWindowResize);
+  
+      // Clean up the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
+
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = isDesktop ? 3 : 1;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -52,7 +69,7 @@ function Works() {
         </p>
       </div>
       <div className='works-content'>
-        {isLoading && <CardSkeleton cards={3} />}
+        {isLoading && <CardSkeleton cards={isDesktop ? 3 : 1} />}
         {
           currentItems.map((work) => {
             return (

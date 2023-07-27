@@ -55,3 +55,50 @@
     height: 350px;
     width: auto;
 }
+
+/* @media (min-width: 1440px) { ... }
+ 
+@media (max-width: 1200px) and (max-width: 1439px) { ... }
+ 
+@media (max-width: 1024px) { ... }
+
+*/
+
+@media (max-width: 640px) {
+
+    .contact .title {
+        font-size: 24px;
+        padding: 24px;
+        color: #f3f3f3;
+        text-align: center;
+    }
+    
+    .contact .main-content {
+        flex-direction: column-reverse;
+        width: 100%;
+        row-gap: 64px;
+        align-items: center;
+        padding: 0 0 64px 0;
+    }
+    
+    .contact .main-content .content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contact .main-content .content .contact-data {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 24px;
+        padding: 12px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #f3f3f3;
+        text-align: center;
+    }
+    
+    .contact .main-content .logo-div img {
+        height: 200px;
+    }
+}
