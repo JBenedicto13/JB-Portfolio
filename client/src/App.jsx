@@ -6,7 +6,6 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import { SkeletonTheme } from 'react-loading-skeleton';
 
 function App() {
-  
   return (
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <BrowserRouter>

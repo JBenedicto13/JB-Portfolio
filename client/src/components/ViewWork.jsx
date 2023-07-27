@@ -5,8 +5,7 @@ import http from '../utils/http.js';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const ViewWork = () => {
-    
+const ViewWork = (isDesktop) => {
     const { id } = useParams();
     const [workData, setWorkData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -63,29 +62,57 @@ const ViewWork = () => {
                 <div className='title'>
                     <p>Screenshots</p>
                 </div>
-                <div className='screenshot-slider'>
-                    <button onClick={handlePrevPage} disabled={currentPage === 1} className='slider-control'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
-                            <path d="M70.75 81.7702L1 41.5L70.75 1.22982L70.75 81.7702Z" fill="#D9D9D9" stroke="black"/>
-                        </svg>
-                    </button>
-                    <div className='images'>
-                        {
-                            isLoading ? <Skeleton width={800} height={450} /> :
-                            currentItems.map((img) => {
-                                return (
-                                    <img key={img.asset_id} src={img.url} alt={img.filename} />
-                                )
-                            })
-                        } 
-                        
+                {!isDesktop ?
+                    <div className='screenshot-slider'>
+                        <button onClick={handlePrevPage} disabled={currentPage === 1} className='slider-control'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
+                                <path d="M70.75 81.7702L1 41.5L70.75 1.22982L70.75 81.7702Z" fill="#D9D9D9" stroke="black"/>
+                            </svg>
+                        </button>
+                        <div className='images'>
+                            {
+                                isLoading ? <Skeleton width={800} height={450} /> :
+                                currentItems.map((img) => {
+                                    return (
+                                        <img key={img.asset_id} src={img.url} alt={img.filename} />
+                                    )
+                                })
+                            } 
+                            
+                        </div>
+                        <button onClick={handleNextPage} disabled={indexOfLastItem >= imgUrls.length} className='slider-control'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
+                                <path d="M1.25 1.22982L71 41.5L1.25 81.7702L1.25 1.22982Z" fill="#D9D9D9" stroke="black"/>
+                            </svg>
+                        </button>
                     </div>
-                    <button onClick={handleNextPage} disabled={indexOfLastItem >= imgUrls.length} className='slider-control'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
-                            <path d="M1.25 1.22982L71 41.5L1.25 81.7702L1.25 1.22982Z" fill="#D9D9D9" stroke="black"/>
-                        </svg>
-                    </button>
-                </div>
+                    :
+                    <div className='screenshot-slider'>
+                        <div className='images'>
+                            {
+                                isLoading ? <Skeleton width={800} height={450} /> :
+                                currentItems.map((img) => {
+                                    return (
+                                        <img key={img.asset_id} src={img.url} alt={img.filename} />
+                                    )
+                                })
+                            } 
+                            
+                        </div>
+                        <div className='buttons-div'>
+                            <button onClick={handlePrevPage} disabled={currentPage === 1} className='slider-control'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
+                                    <path d="M70.75 81.7702L1 41.5L70.75 1.22982L70.75 81.7702Z" fill="#D9D9D9" stroke="black"/>
+                                </svg>
+                            </button>
+                            <button onClick={handleNextPage} disabled={indexOfLastItem >= imgUrls.length} className='slider-control'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
+                                    <path d="M1.25 1.22982L71 41.5L1.25 81.7702L1.25 1.22982Z" fill="#D9D9D9" stroke="black"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
      </div>

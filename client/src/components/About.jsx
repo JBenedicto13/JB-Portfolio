@@ -9,24 +9,24 @@ import graphicDesignTech from './data/graphicDesignTech';
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-    
+
     const sectionsRef = useRef();
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
 
     useEffect(() => {
         // Function to set the isDesktop state based on the window width
         const handleWindowResize = () => {
-          setIsDesktop(window.innerWidth >= 1440);
+        setIsDesktop(window.innerWidth >= 1440);
         };
-    
+
         // Add event listener on component mount to handle window resize
         window.addEventListener('resize', handleWindowResize);
-    
+
         // Clean up the event listener on component unmount
         return () => {
-          window.removeEventListener('resize', handleWindowResize);
+        window.removeEventListener('resize', handleWindowResize);
         };
-      }, []);
+    }, []);
 
     useEffect(() => {
         if (isDesktop) {

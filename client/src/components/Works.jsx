@@ -5,28 +5,11 @@ import { useEffect, useState } from 'react';
 import {Cloudinary} from "@cloudinary/url-gen";
 import CardSkeleton from './CardSkeleton';
 
-function Works() {
+function Works(isDesktop) {
 
   const cld = new Cloudinary({cloud: {cloudName: 'dxnta6ljp'}});
   const [worksData, setWorksData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
-
-  useEffect(() => {
-      // Function to set the isDesktop state based on the window width
-      const handleWindowResize = () => {
-        setIsDesktop(window.innerWidth >= 1440);
-      };
-  
-      // Add event listener on component mount to handle window resize
-      window.addEventListener('resize', handleWindowResize);
-  
-      // Clean up the event listener on component unmount
-      return () => {
-        window.removeEventListener('resize', handleWindowResize);
-      };
-    }, []);
-
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = isDesktop ? 3 : 1;
