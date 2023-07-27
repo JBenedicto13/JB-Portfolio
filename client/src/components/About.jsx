@@ -11,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
 
     const sectionsRef = useRef();
+    const [hoveredIcon, setHoveredIcon] = useState(null);
+    const [hoveredIconGD, setHoveredIconGD] = useState(null);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
 
     useEffect(() => {
@@ -92,11 +94,17 @@ const About = () => {
                     <div className='tech-div'>
                     {
                         webdevTech.map((icon, index) => {
-                            if (icon.name === "HTML" || icon.name === "CSS" || icon.name === "PHP") {
+                            if (icon.name === "HTML" || icon.name === "CSS" || icon.name === "PHP-white") {
                                 return null; // Skip rendering this icon
                             }
                             return (
-                                <span key={index}>{icon.svg}</span>
+                                <span
+                                    key={index}
+                                    onMouseEnter={() => setHoveredIcon(index)}
+                                    onMouseLeave={() => setHoveredIcon(null)}
+                                >
+                                    {hoveredIcon === index ? icon.name : icon.svg}
+                                </span>
                             )
                         })
                     }
@@ -106,7 +114,13 @@ const About = () => {
                     {
                         graphicDesignTech.map((icon, index) => {
                             return (
-                                <span key={index}>{icon.svg}</span>
+                                <span
+                                    key={index}
+                                    onMouseEnter={() => setHoveredIconGD(index)}
+                                    onMouseLeave={() => setHoveredIconGD(null)}
+                                >
+                                    {hoveredIconGD === index ? icon.name : icon.svg}
+                                </span>
                             )
                         })
                     }

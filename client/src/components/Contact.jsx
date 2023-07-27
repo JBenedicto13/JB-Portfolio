@@ -14,7 +14,7 @@ const Contact = () => {
             {
                 contactData.map((data, index) => {
                     return (
-                        <a key={index} href={data.link} target='_blank' className='contact-data'>
+                        <a key={index} href={data.link} target={data.target} className='contact-data'>
                             <span>{data.svg}</span>
                             <p>{data.value}</p>
                         </a>

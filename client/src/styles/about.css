@@ -152,13 +152,15 @@
   background-blend-mode: soft-light;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   column-gap: 24px;
   padding: 24px;
   margin: 24px 0 64px 0;
+  color: #F3F3F3;
+  cursor: pointer;
 }
 
 .technologies-section .tech-div span svg {
-  cursor: pointer;
   height: 90px;
   width: auto;
 }
