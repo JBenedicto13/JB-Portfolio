@@ -5,7 +5,25 @@ import http from '../utils/http.js';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const ViewWork = (isDesktop) => {
+const ViewWork = () => {
+
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
+
+    useEffect(() => {
+        // Function to set the isDesktop state based on the window width
+        const handleWindowResize = () => {
+        setIsDesktop(window.innerWidth >= 1440);
+        };
+
+        // Add event listener on component mount to handle window resize
+        window.addEventListener('resize', handleWindowResize);
+
+        // Clean up the event listener on component unmount
+        return () => {
+        window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
+
     const { id } = useParams();
     const [workData, setWorkData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -62,7 +80,7 @@ const ViewWork = (isDesktop) => {
                 <div className='title'>
                     <p>Screenshots</p>
                 </div>
-                {!isDesktop ?
+                {isDesktop ?
                     <div className='screenshot-slider'>
                         <button onClick={handlePrevPage} disabled={currentPage === 1} className='slider-control'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="72" height="83" viewBox="0 0 72 83" fill="none">
