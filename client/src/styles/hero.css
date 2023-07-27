@@ -103,7 +103,7 @@
  
 @media (max-width: 1024px) { ... } */
  
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
 
     .hero {
         width: 100%;
@@ -153,6 +153,6 @@
         font-weight: 600;
     }
     #btnResume {
-        margin: 25px 0;
+        height: 30px;
     }
 }

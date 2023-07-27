@@ -173,10 +173,9 @@
  
 @media (max-width: 1024px) { ... } */
  
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .about {
     flex-direction: column;
-    border: 1px solid hotpink;
     width: 100%;
   }
   
