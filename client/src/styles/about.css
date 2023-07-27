@@ -223,8 +223,8 @@
   
   .about-ojt-dost {
     border: solid 1px #000;
-    margin: auto;
-    width: 100%;
+    margin: 10px auto;
+    width: 95%;
   }
   
   .about-ojt-dost .title h1 {
@@ -242,7 +242,7 @@
   }
   
   .about-ojt-dost .title-div {
-    width: 480px;
+    width: 300px;
     padding: 50px;
   }
   
@@ -253,7 +253,7 @@
   
   .about-ojt-dost .contents img {
     padding-top: 0px;
-    width: 480px;
+    width: 300px;
     height: auto;
     border: 1px solid hsl(0, 0%, 30%);
   }
@@ -285,7 +285,7 @@
   }
   
   .technologies-section .tech-div {
-    height: 70vh;
+    height: 1080px;
     width: auto;
     display: flex;
     flex-direction: column;

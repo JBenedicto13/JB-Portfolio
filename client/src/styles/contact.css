@@ -90,11 +90,10 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        column-gap: 24px;
-        padding: 12px 24px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: #f3f3f3;
+        column-gap: 18px;
+        padding: 12px 18px;
+        border-radius: 5px;
+        font-size: 12px;
         text-align: center;
     }
     
