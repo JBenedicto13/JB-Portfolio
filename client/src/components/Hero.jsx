@@ -1,22 +1,79 @@
 import '../styles/hero.css';
 import ResumePDF from '../assets/John-Benedict-Benedicto-Resume.pdf';
+import { gsap } from 'gsap';
+import { useEffect, useRef } from 'react';
+
 function Hero() {
 
+  const heroRightRef = useRef(null);
+  const heroLeftRef = useRef(null);
+
+  useEffect(() => {
+    const heroLeft = heroLeftRef.current;
+    const firstCircle = heroLeft.querySelector('.circle1');
+    const secondCircle = heroLeft.querySelector('.circle2');
+    const heroImage = heroLeft.querySelector('#hero');
+
+    const heroRight = heroRightRef.current;
+    const titleSpan = heroRight.querySelector('#myName');
+    const contentEl = heroRight.querySelector('#whatIDo');
+    const resumeButton = heroRight.querySelector('#btnResume');
+
+    gsap.set([titleSpan, contentEl, resumeButton], { opacity: 0, y: -20 });
+    gsap.set([firstCircle, secondCircle], { opacity: 0, x: -20 });
+    gsap.set(heroImage, { opacity: 0, x: 20 });
+
+    const timeline = gsap.timeline();
+
+    timeline.to([firstCircle, secondCircle, heroImage], {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: 'power2.out',
+      delay: 1, 
+    });
+
+    timeline.to(titleSpan, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+
+    timeline.to(contentEl, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+
+    timeline.to(resumeButton, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+
+    return () => {
+      timeline.kill();
+    };
+  }, []);
+  
   return (
     <div id='hero-section' className="hero">
       <div className="hero-section">
-        <div className='hero-left'>
+        <div ref={heroLeftRef} className='hero-left'>
           <img id='hero' src='https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/nwuucuyxcj3bxfxvhhtz' alt="hero" />
           <div className='circle1'></div>
           <div className='circle2'></div>
         </div>
-        <div className='hero-right'>
+        <div ref={heroRightRef} className='hero-right'>
           <p>
-              <span>I'm JB</span>
+              <span id='myName'>I'm JB</span>
               <br />
-              an aspiring 
+              <p id='whatIDo'>an aspiring 
               Web Developer
-              and Graphic Designer
+              and Graphic Designer</p>
           </p>
           <a href={ResumePDF} target='_blank' id='btnResume'>
             <span id='resume-svg'>

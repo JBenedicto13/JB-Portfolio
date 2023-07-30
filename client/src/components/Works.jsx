@@ -1,12 +1,126 @@
 import '../styles/works.css';
 import WebDevTechIcons from './data/webdevTech';
 import http from '../utils/http';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import {Cloudinary} from "@cloudinary/url-gen";
 import CardSkeleton from './CardSkeleton';
+import { gsap } from 'gsap';
 
 function Works(isDesktop) {
 
+  // Animation with GSAP
+  const worksRef = useRef(null);
+
+  useEffect(() => {
+    const worksElement = worksRef.current;
+    const headerTitle = worksElement.querySelector('#header-title');
+    const headerDescription = worksElement.querySelector('#header-description');
+    const workTitle = worksElement.querySelector('#work-title');
+    const worksContents = worksElement.querySelector('.works-content');
+
+    gsap.set([headerTitle, headerDescription, workTitle, worksContents], { opacity: 0, y: 50 });
+
+    const animateElements = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Check if the elements are present in the DOM before accessing their bounding client rectangle
+      const isHeaderTitleVisible = headerTitle && headerTitle.getBoundingClientRect().top < windowHeight;
+      const isHeaderDescriptionVisible = headerDescription && headerDescription.getBoundingClientRect().top < windowHeight;
+      const isWorkTitleVisible = workTitle && workTitle.getBoundingClientRect().top < windowHeight;
+      const isWorksContents = worksContents && worksContents.getBoundingClientRect().top < windowHeight;
+
+      if (isHeaderTitleVisible) {
+        gsap.to(headerTitle, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      } else {
+        gsap.to(headerTitle, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      }
+
+      if (isHeaderDescriptionVisible) {
+        gsap.to(headerDescription, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      } else {
+        gsap.to(headerDescription, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      }
+
+      if (isWorkTitleVisible) {
+        gsap.to(workTitle, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      } else {
+        gsap.to(workTitle, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      }
+
+      if (isWorksContents) {
+        gsap.to(worksContents, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      } else {
+        gsap.to(worksContents, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      }
+    };
+
+    // Attach the 'scroll' event listener with throttle to limit the number of triggers
+    const throttleAnimate = throttle(animateElements, 100); // Adjust the throttle time as needed
+
+    window.addEventListener('scroll', throttleAnimate);
+
+    return () => {
+      // Remove the 'scroll' event listener on component unmount
+      window.removeEventListener('scroll', throttleAnimate);
+    };
+  }, []);
+
+  // Throttle function to limit the frequency of function calls
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function () {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+  };
+
+  // Pagination
   const cld = new Cloudinary({cloud: {cloudName: 'dxnta6ljp'}});
   const [worksData, setWorksData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,12 +157,12 @@ function Works(isDesktop) {
   }, [])
 
   return (
-    <div id='works-section' className="works">
+    <div ref={worksRef} id='works-section' className="works">
       <div className="works-header">
         <p>
-          <span>Works</span>
+          <span id='header-title'>Works</span>
           <br />
-          Most of my works are personal and school projects.
+          <p id='header-description'>Most of my works are personal and school projects.</p>
         </p>
       </div>
       <div className='works-content'>
@@ -57,7 +171,7 @@ function Works(isDesktop) {
           currentItems.map((work) => {
             return (
               <div key={work.id} className='work-card'>
-                <p>{work.title}</p>
+                <p id='work-title'>{work.title}</p>
                 <div onClick={() => viewWork(work.id)} className='work-card-body'>
                   <img className='work-cover' src={work.thumbnail} alt="RE_Work" />
                   <div className='tech-icons'>
