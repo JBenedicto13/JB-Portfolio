@@ -1,59 +1,66 @@
 .contact {
-    width: 100%;
-    background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
-    background-color: #111089;
-    background-blend-mode: soft-light;
+  width: 100%;
+  background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
+  background-color: #111089;
+  background-blend-mode: soft-light;
 }
 
 .contact .title {
-    font-size: 24px;
-    padding: 24px;
-    color: #f3f3f3;
-    text-align: center;
+  font-size: 24px;
+  padding: 24px;
+  color: #f3f3f3;
+  text-align: center;
 }
 
 .contact .main-content {
-    display: flex;
-    width: 100%;
-    column-gap: 64px;
-    justify-content: center;
-    padding: 0 0 64px 0;
+  display: flex;
+  width: 100%;
+  column-gap: 64px;
+  justify-content: center;
+  padding: 0 0 64px 0;
 }
 
 .contact .main-content .content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact .main-content .content .contact-data {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 24px;
-    padding: 12px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #f3f3f3;
-    text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 24px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #f3f3f3;
+  text-align: center;
 }
 
 .contact .main-content .content .contact-data:hover {
-    background-color: #4444c7;
-    cursor: pointer;
+  background-color: #4444c7;
+  cursor: pointer;
 }
 
 .contact .main-content .content .contact-data svg {
-    height: 64px;
-    width: auto;
+  height: 64px;
+  width: auto;
 }
 
 .contact .main-content .content .contact-data svg path {
-    fill: #f3f3f3;
+  fill: #f3f3f3;
 }
 
 .contact .main-content .logo-div img {
-    height: 350px;
-    width: auto;
+  height: 350px;
+  width: auto;
+}
+
+.contact .copyright-text {
+  color: #f3f3f3;
+  text-align: center;
+  font-size: x-large;
+  padding-bottom: 3rem;
 }
 
 /* @media (min-width: 1440px) { ... }
@@ -65,39 +72,38 @@
 */
 
 @media (max-width: 1024px) {
+  .contact .title {
+    font-size: 24px;
+    padding: 24px;
+    color: #f3f3f3;
+    text-align: center;
+  }
 
-    .contact .title {
-        font-size: 24px;
-        padding: 24px;
-        color: #f3f3f3;
-        text-align: center;
-    }
-    
-    .contact .main-content {
-        flex-direction: column-reverse;
-        width: 100%;
-        row-gap: 64px;
-        align-items: center;
-        padding: 0 0 64px 0;
-    }
-    
-    .contact .main-content .content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .contact .main-content .content .contact-data {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        column-gap: 18px;
-        padding: 12px 18px;
-        border-radius: 5px;
-        font-size: 12px;
-        text-align: center;
-    }
-    
-    .contact .main-content .logo-div img {
-        height: 200px;
-    }
+  .contact .main-content {
+    flex-direction: column-reverse;
+    width: 100%;
+    row-gap: 64px;
+    align-items: center;
+    padding: 0 0 64px 0;
+  }
+
+  .contact .main-content .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact .main-content .content .contact-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 18px;
+    padding: 12px 18px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .contact .main-content .logo-div img {
+    height: 200px;
+  }
 }
