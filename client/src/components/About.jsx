@@ -64,7 +64,7 @@ const About = () => {
               I am a passionate and dedicated software engineer with experience
               in developing web-based system and apps in both Web2 and Web3
               field. I wanted to pursue a career as a Blockchain Engineer who
-              build Dapps mainly with Next.js and Rust that are fast, reliable
+              build Dapps mainly with Next.js and Go that are fast, reliable
               and secured.
             </p>
           </div>
