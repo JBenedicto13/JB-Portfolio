@@ -8,11 +8,20 @@ export default defineConfig({
     rollupOptions: {
       external: [],
       output: {
-        globals: {}
+        globals: {},
+        manualChunks: {
+          gtm: ['react-gtm-module']
+        }
       }
+    },
+    commonjsOptions: {
+      include: [/react-gtm-module/, /node_modules/]
     }
   },
   optimizeDeps: {
     include: ['react-gtm-module']
+  },
+  define: {
+    global: 'globalThis'
   }
 })
