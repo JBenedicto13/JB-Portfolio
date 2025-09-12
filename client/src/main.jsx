@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { inject } from '@vercel/analytics';
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  gtmId: 'GTM-M22SGQ5B' // Replace with your actual GTM ID
+};
+
+TagManager.initialize(tagManagerArgs);
 
 inject();
 
