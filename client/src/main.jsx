@@ -3,8 +3,26 @@ import App from './App.jsx'
 import './index.css'
 import { inject } from '@vercel/analytics';
 
-// Manual GTM Implementation
+// Google Analytics and GTM Implementation
 const GTM_ID = 'GTM-M22SGQ5B';
+const GA_ID = 'G-YLR9KDMBN5';
+
+// Initialize Google Analytics (gtag.js)
+const initializeGA = () => {
+  // Add gtag script to head
+  const gtagScript = document.createElement('script');
+  gtagScript.async = true;
+  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(gtagScript);
+
+  // Initialize gtag
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+
+  console.log('Google Analytics initialized successfully');
+};
 
 // Initialize Google Tag Manager
 const initializeGTM = () => {
@@ -33,7 +51,8 @@ const initializeGTM = () => {
   console.log('GTM initialized successfully');
 };
 
-// Initialize GTM
+// Initialize both GA and GTM
+initializeGA();
 initializeGTM();
 
 inject();
