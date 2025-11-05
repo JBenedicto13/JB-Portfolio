@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/contact.css";
 import contactData from "./data/contactData.jsx";
 import logo from "../assets/JB-logo-white.png";
@@ -7,7 +6,7 @@ const Contact = () => {
   return (
     <div className="contact">
       <div className="title">
-        <h1>Let's Connect!</h1>
+        <h1>Let&apos;s Connect!</h1>
       </div>
       <div className="main-content">
         <div className="content">
@@ -31,7 +30,7 @@ const Contact = () => {
           </span>
         </div>
       </div>
-      <p className="copyright-text">All rights reserved © 2024</p>
+      <p className="copyright-text">All rights reserved © 2025</p>
     </div>
   );
 };

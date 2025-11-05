@@ -7,9 +7,14 @@
 
 .about-container {
   display: flex;
+  width: 90%;
+  margin: auto;
+  border: 1px solid #000;
+  border-radius: 10px;
   padding: 100px 0;
-  width: 300vw;
-  margin: 100px 0px;
+  /* padding: 100px 0; */
+  /* width: 300vw; */
+  /* margin: 100px 0px; */
 }
 
 .about-container section {
@@ -17,10 +22,9 @@
 }
 
 .about-content {
-  width: 60%;
-  color: #f3f3f3;
-  margin-left: 100px;
-  margin-top: 80px;
+  /* color: #f3f3f3; */
+  padding-left: 100px;
+  /* margin-top: 80px; */
 }
 
 .about .circle1,
@@ -80,11 +84,13 @@
 .about-content h1 {
   font-size: 64px;
   font-weight: 600;
+  width: fit-content;
 }
 
 .about-content p {
   font-size: 36px;
-  width: 70%;
+  width: 90%;
+  text-align: justify;
 }
 
 .about-ojt-dost {
@@ -124,7 +130,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 400vh;
+  /* height: 400vh; */
   width: 100%;
 }
 
@@ -136,6 +142,7 @@
   text-align: center;
   font-size: 64px;
   padding: 75px 0;
+  margin-top: 100px;
 }
 
 .technologies-section .technologies-content {
@@ -150,7 +157,7 @@
   background-color: #111089;
   background-blend-mode: soft-light;
   height: 100px;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -226,6 +233,7 @@
   .about {
     flex-direction: column;
     width: 100%;
+    
   }
 
   .about-container {
@@ -234,6 +242,7 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    border: none;
   }
 
   .about-container section {
@@ -243,12 +252,12 @@
   .about-content {
     width: 100%;
     margin: auto;
-    padding: 160px 0;
+    padding: 25px 0;
     text-align: justify;
     height: auto;
-    background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
+    /* background-image: url(https://res.cloudinary.com/dxnta6ljp/image/upload/f_auto,q_auto/v1/Portfolio/lvtubkdyrnuklmd9nxse);
     background-color: #111089;
-    background-blend-mode: soft-light;
+    background-blend-mode: soft-light; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,11 +274,13 @@
     font-weight: 600;
     text-align: left;
     width: 75%;
+    margin-bottom: 25px;
   }
 
   .about-content p {
     font-size: 24px;
     width: 75%;
+    text-align: left;
   }
 
   .about-ojt-dost {
@@ -320,12 +331,14 @@
 
   .technologies-section .technologies-header {
     width: 100%;
+    margin: 0;
   }
 
   .technologies-section .technologies-header h1 {
     text-align: center;
     font-size: 36px;
-    padding: 75px 0;
+    margin: 50px 0;
+    padding: 25px 0;
   }
 
   .technologies-section .technologies-content {

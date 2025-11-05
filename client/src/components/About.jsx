@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../styles/about.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import blockchainIcon from "../assets/blockchain-icon.svg";
+// import blockchainIcon from "../assets/blockchain-icon.svg";
 import graphicDesignTech from "./data/graphicDesignTech";
 import LogoSlide from "./LogoSlide";
 
@@ -29,24 +29,24 @@ const About = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isDesktop) {
-      const sections = Array.from(sectionsRef.current.children);
+  // useEffect(() => {
+  //   if (isDesktop) {
+  //     const sections = Array.from(sectionsRef.current.children);
 
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionsRef.current,
-          pin: true,
-          scrub: 1,
-          end: "+=3000",
-          // snap: 1 / (sections.length - 1),
-          // markers: true,
-        },
-      });
-    }
-  }, [isDesktop]);
+  //     gsap.to(sections, {
+  //       xPercent: -100 * (sections.length - 1),
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: sectionsRef.current,
+  //         pin: true,
+  //         scrub: 1,
+  //         end: "+=3000",
+  //         // snap: 1 / (sections.length - 1),
+  //         // markers: true,
+  //       },
+  //     });
+  //   }
+  // }, [isDesktop]);
 
   return (
     <div id="about-section" className="about">
@@ -55,20 +55,16 @@ const About = () => {
           <div className="about-content">
             <h1>About</h1>
             <p>
-              {/* I am a graduating student who wants to pursue a career as a Web
-              Developer specializing on blockchain Dapps. I use MERN Stack as it
-              use mostly by modern APIs for blockchain development. I have
-              developed a Website with a minting page for an NFT Project before,
-              also I have developed a Web-based Voting System through Blockchain
-              Technology in Polygon Mumbai Testnet as our capstone project. */}
-              I am a passionate and dedicated software engineer with experience
-              in developing web-based system and apps in both Web2 and Web3
-              field. I wanted to pursue a career as a Blockchain Engineer who
-              build Dapps mainly with Next.js and Go that are fast, reliable
-              and secured.
+              I&apos;m a Software Engineer who builds decentralized applications with a focus on performance, reliability, and security. My path into blockchain started unconventionally—as an NFT gaming scholar. What captivated me wasn&apos;t just the technology, but the open communities and collaborative spirit that surrounded it. That experience transformed my curiosity into a career.
+              <br /> <br />
+              I specialize in full-stack blockchain development using Next.js, React, Go, and Solidity. Over the past 2+ years, I&apos;ve developed smart contracts, built decentralized storage solutions with IPFS, created NFT platforms, and contributed to open-source blockchain education tools. At AR Data Technologies, I developed proof-of-concepts for client proposals and implemented secure IPFS storage systems for international clients.
+              <br /> <br />
+              I&apos;m a cum laude IT graduate who approaches development with both technical precision and creative problem-solving. I&apos;ve led projects, collaborated with international teams, and consistently delivered solutions that work—not just in theory, but in production.
+              <br /> <br />
+              I&apos;m looking for my next opportunity to build meaningful Web3 applications and contribute to teams that are shaping the future of decentralized technology.
             </p>
           </div>
-          <div className="about-side">
+          {/* <div className="about-side">
             <div className="arrow-right">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,12 +81,12 @@ const About = () => {
             <div className="blockchain">
               <img src={blockchainIcon} alt="blockchain" />
             </div>
-          </div>
-          <div className="circle1"></div>
-          <div className="circle2"></div>
+          </div> */}
+          {/* <div className="circle1"></div> */}
+          {/* <div className="circle2"></div> */}
         </section>
 
-        <section>
+        {/* <section>
           <div className="about-ojt-dost">
             <div className="title">
               <h1>Student Trainee at DOST3</h1>
@@ -114,7 +110,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
       <div className="technologies-section">
         <div className="technologies-header">
