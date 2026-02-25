@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from '../Home'
 import ViewWork from '../ViewWork'
+import Presentation from '../Presentation'
 
 const Routing = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
@@ -26,6 +27,8 @@ const Routing = () => {
             <Route path='/' element={<Home isDesktop={isDesktop} />} />
             <Route path='/home' element={<Home isDesktop={isDesktop} />} />
             <Route path='/work/view/:id' element={<ViewWork isDesktop={isDesktop} />} />
+            {/* For SHS Career Talk Presentation */}
+            <Route path='/presentation' element={<Presentation isDesktop={isDesktop} />} />
         </Routes>
     </>
   )

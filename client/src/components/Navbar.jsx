@@ -21,6 +21,7 @@ function Navbar() {
                 <li onClick={isMenuOpen ? toggleMenu : ''}><a href="/#hero-section">Home</a></li>
                 <li onClick={isMenuOpen ? toggleMenu : ''}><a href="/#works-section">Works</a></li>
                 <li onClick={isMenuOpen ? toggleMenu : ''}><a href="/#about-section">About</a></li>
+                <li onClick={isMenuOpen ? toggleMenu : ''}><a href="/presentation">Presentation</a></li>
             </ul>
             <span 
                 onClick={toggleMenu} 
